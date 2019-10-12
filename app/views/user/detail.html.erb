@@ -1,0 +1,15 @@
+<div class="user_image">
+    <img src="<%="/#{@user.image}"%>">
+</div>
+<%=@user.name%>さん
+<div class="detail">
+    <p>自己紹介:<%=@user.self_intro%></p>
+    <p>趣味:<%=@user.hobby%></p>
+    <p>性別:<%=@user.sex%></p>
+    <p>年齢:<%=@user.age%></p>
+    <p>連絡先:<%=@user.contact%></p>
+    
+    <%if @current_user==@user%>
+    <%=link_to("編集","/user/#{@user.id}/edit")%>
+    <%end%>
+</div>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AtHomers</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  </head>
+
+  <body>
+    <header>
+      <a href="/home">AtHomers</a>
+      
+      <%if session[:user_id]%>
+      <a href="/post/friend/new">友達募集</a>
+      
+      <a href="/user/index">ユーザー一覧</a>
+      <a href="/user/logout">ログアウト</a>
+      <%else%>
+      <a href="/user/index">ユーザー一覧</a>
+      <a href="/user/signup">新規登録</a>
+      <a href="/user/login">ログイン</a>
+      <%end%>
+
+    </header>
+    <main>
+      <div class="leftside">
+            
+            
+      </div>
+      <div class="centerside">
+    <%= yield %>
+      </div>
+      <div class="rightside">
+            <img src="/広告.png"  style="width:80%;"><br>
+            <img src="/広告２.jpg" style="margin: 0 auto;" >
+      </div>
+    </main>
+  </body>
+</html>
+

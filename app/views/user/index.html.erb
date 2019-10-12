@@ -1,0 +1,10 @@
+<p>ユーザー一覧</p>
+
+<%@users.each do|user|%>
+<div class=user_index>
+    <%=link_to("/user/#{user.id}")do%>
+    <img src=<%="/#{user.image}"%> class="index_user_image">
+    <%end%>
+    <p><%=link_to(user.name,"/user/#{user.id}")%></p>
+</div>
+<%end%>

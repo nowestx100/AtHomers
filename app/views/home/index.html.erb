@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+            <div class="sitedemo">
+                <p>このサイトは引きこもりがちだったり、不登校だったり、友達が少ない人達用のサイトです。暇を持て余してる者同士一緒にゲームしたり雑談したりする友達や一緒に何か創作する仲間をここで作りませんか？<br>
+                まずはヘッダーの新規登録からアカウントを作って友達募集を投稿してみましょう。<br>
+                </p>
+            </div>
+            
+            <div class="users">
+                <%@posts.each do |post|%>
+                <%user=User.find_by(id:post.user_id)%>
+                <div class="post">
+                    <div class="post_user">
+                        <%=link_to("/user/#{user.id}")do%>
+                        <img src=<%="/#{user.image}"%> class="user_image">
+                        <%=link_to(user.name,"user/#{user.id}")%>
+                        <%end%>
+                    </div>
+                    <div class="content">
+                        <div class="post_content">
+                            <%=post.content.truncate(350)%>
+                        </div>
+                        <div class="post_time">
+                            <p><%=post.created_at.strftime("%m/%d%t%H:%M")%></p>
+                        </div>
+                    </div>
+                </div>
+                <%end%>
+            </div>
+            
+
+            <div class="next_or_back">
+            </div>
+    <footer></footer>
+</body>
+</html>
